@@ -1,59 +1,62 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
+import CountrySearch from "@/components/CountrySearch.vue"
 </script>
 
 <template>
   <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
-    </div>
+    <img id="globe-icon" src="./assets/globe.png" />
+    <h2>
+      Country Lookup
+    </h2>
   </header>
 
-  <RouterView />
+  <main>
+    <CountrySearch />
+  </main>
 </template>
 
 <style scoped>
 header {
-  line-height: 1.5;
-  max-height: 100vh;
+  font-weight: bold;
+  grid-area: header;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+
+  margin: 0px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  color: white;
+  /* box-shadow: 0px 0px 10px gray; */
+  border-bottom: solid 1px rgba(84, 84, 84, 0.48);
+
+}
+
+header>* {
+  margin-left: 20px;
+}
+
+header>h1 {
+  font-weight: bold;
+}
+
+header>#globe-icon {
+  height: 75%;
+  width: auto;
+  filter: saturate(0) invert(1);
+}
+
+
+main {
+  grid-area: main;
+  height: 100vh;
 }
 
 .logo {
   display: block;
   margin: 0 auto 2rem;
-}
-
-nav {
-  width: 100%;
-  font-size: 12px;
-  text-align: center;
-  margin-top: 2rem;
-}
-
-nav a.router-link-exact-active {
-  color: var(--color-text);
-}
-
-nav a.router-link-exact-active:hover {
-  background-color: transparent;
-}
-
-nav a {
-  display: inline-block;
-  padding: 0 1rem;
-  border-left: 1px solid var(--color-border);
-}
-
-nav a:first-of-type {
-  border: 0;
 }
 
 @media (min-width: 1024px) {
@@ -71,15 +74,6 @@ nav a:first-of-type {
     display: flex;
     place-items: flex-start;
     flex-wrap: wrap;
-  }
-
-  nav {
-    text-align: left;
-    margin-left: -1rem;
-    font-size: 1rem;
-
-    padding: 1rem 0;
-    margin-top: 1rem;
   }
 }
 </style>
